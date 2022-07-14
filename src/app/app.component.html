@@ -1,0 +1,33 @@
+<!-- <form #myForm="ngForm" (ngSubmit)="saveChanges(myForm)" novalidate>
+  <input name="name" ngModel required #name="ngModel">
+  <input name="age" ngModel required #age="ngModel">
+  <input name="favoriteColor" ngModel  #favoriteColor="ngModel">
+  <br/>
+  <button>Save Changes</button>
+
+</form> -->
+<div class="container">
+  <h2>User Form</h2><button type="button" class="btn btn-primary" (click)="toggleEdit()" *ngIf="!displayEdit">Display Edit</button>
+  <div class="container" *ngIf="displayEdit">
+    <form #myForm="ngForm" (ngSubmit)="saveChanges(myForm)" novalidate>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input name="name" [(ngModel)]="user.name" required #name="ngModel" class="form-control" id="name">
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input name="age" [(ngModel)]="user.age" required #age="ngModel" class="form-control" id="age">
+      </div>
+      <div class="form-group">
+        <label for="favoriteColor">Favorite Color:</label>
+        <input name="favoriteColor"  [(ngModel)]="user.favoriteColor"  #favoriteColor="ngModel" class="form-control" id="favoriteColor">
+      </div>
+      <button type="submit" class="btn btn-primary">SaveChanges</button>
+    </form>
+  </div>
+  <div class="container" *ngIf="!displayEdit">
+    <p>Name: {{ user.name }}</p>
+    <p>Age: {{ user.age }}</p>
+    <p>Favorite Color: {{ user.favoriteColor }}</p>
+  </div>
+</div>
